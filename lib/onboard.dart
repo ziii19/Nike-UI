@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nike/bottom-Navigation-Bar/mainhome.dart';
+import 'package:nike/homenavigation/mainhome.dart';
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
@@ -132,15 +132,7 @@ class OnBoard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 100, right: 30),
               child: Image.asset('assets/images/BG.png'),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 15, right: 5, top: 115),
-            //   child: Image.asset(
-            //     'assets/images/img_sepatu1.png',
-            //     width: 300,
-            //   ),
-            // ),
             Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 const SizedBox(
                   height: 100,

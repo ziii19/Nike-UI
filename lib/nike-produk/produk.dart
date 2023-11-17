@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nike/bottom-Navigation-Bar/mainhome.dart';
+import 'package:nike/homenavigation/mainhome.dart';
 import 'package:nike/detail/detailproduk.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nike/home/homepage.dart';
 import 'package:nike/like/like.dart';
 import 'package:nike/nike-produk/data.dart';
 
@@ -68,7 +67,7 @@ class ProdukNikeGrid extends StatelessWidget {
               backgroundColor: Colors.white,
               child: IconButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Maintence(),),);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MaintenceProduk(),),);
                 },
                 icon: const Icon(
                   Icons.shopping_bag_outlined,
@@ -175,6 +174,42 @@ class ProdukNikeGrid extends StatelessWidget {
               ),
             );
           }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class MaintenceProduk extends StatelessWidget {
+  const MaintenceProduk({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue.shade50,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProdukNike(),
+              ),
+            );
+          },
+          icon: const CircleAvatar(
+            child: Icon(Icons.arrow_back),
+          ),
+        ),
+      ),
+      body: Center(
+        child: Text(
+          'Halaman Ini Sedang Dalam Pengembangan',
+          style: GoogleFonts.raleway(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.blueGrey),
         ),
       ),
     );

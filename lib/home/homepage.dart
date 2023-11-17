@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nike/bottom-Navigation-Bar/mainhome.dart';
-import 'package:nike/detail/detailproduk.dart';
+import 'package:nike/detail/homeprodukdetail.dart';
+import 'package:nike/homenavigation/mainhome.dart';
 import 'package:nike/like/like.dart';
 import 'package:nike/nike-produk/produk.dart';
 
@@ -377,7 +377,7 @@ class HomePage extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                const DetailProduk(),
+                                                const DetailProdukHome(),
                                           ),
                                         );
                                       },
@@ -467,7 +467,7 @@ class HomePage extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                const DetailProduk(),
+                                                const DetailProdukHome(),
                                           ),
                                         );
                                       },

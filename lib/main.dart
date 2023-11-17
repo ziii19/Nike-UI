@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nike Store',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.blue,
         useMaterial3: true,

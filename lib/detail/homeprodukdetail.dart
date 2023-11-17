@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nike/homenavigation/mainhome.dart';
 import 'package:nike/like/like.dart';
-import 'package:nike/nike-produk/produk.dart';
 
-class DetailProduk extends StatelessWidget {
-  const DetailProduk({super.key});
+class DetailProdukHome extends StatelessWidget {
+  const DetailProdukHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class DetailProduk extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ProdukNike(),
+                      builder: (context) => const MainHome(),
                     ),
                   );
                 },
@@ -268,7 +268,7 @@ class MaintenceDetail extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const DetailProduk(),
+                builder: (context) => const DetailProdukHome(),
               ),
             );
           },

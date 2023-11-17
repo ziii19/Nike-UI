@@ -6,3 +6,5 @@ Ada 2 stateful untuk like dan bottom navigation
 
 
 Link figma : https://www.figma.com/file/KyenvFpbDfOnpd4HRxd1IG/Nike-Sneaker-Store-App-(Community)?type=design&node-id=13%3A4657&mode=dev
+
+Link Demo : https://youtube.com/shorts/zsGCKD4VFLE?si=_qGO6BNhRZPaoNRF
