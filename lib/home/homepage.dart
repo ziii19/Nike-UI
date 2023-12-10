@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nike/detail/homeprodukdetail.dart';
+import 'package:nike/home/buttoncategory.dart';
+import 'package:nike/home/drawer.dart';
+import 'package:nike/home/shoes.dart';
 import 'package:nike/homenavigation/mainhome.dart';
-import 'package:nike/like/like.dart';
 import 'package:nike/nike-produk/produk.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,20 +19,6 @@ class HomePage extends StatelessWidget {
           child: Image.asset(
             'assets/images/titleappbar.png',
             width: 120,
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const Maintence(),
-              ),
-            );
-          },
-          icon: const Icon(
-            Icons.menu,
-            size: 25,
           ),
         ),
         actions: [
@@ -57,6 +44,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -126,147 +114,7 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 40,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          minimumSize: const Size(110, 40),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Maintence(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'All Shoes',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                          color: const Color(0xFF2B2B2B),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF0D6EFD),
-                          foregroundColor: Colors.white,
-                          minimumSize: const Size(110, 40),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Maintence(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Outdoor',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          minimumSize: const Size(110, 40),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Maintence(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Tennis',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                          color: const Color(0xFF2B2B2B),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          minimumSize: const Size(110, 40),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Maintence(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Jordan',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                          color: const Color(0xFF2B2B2B),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          minimumSize: const Size(110, 40),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const Maintence(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Nike Air',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 1,
-                          color: const Color(0xFF2B2B2B),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                  ],
-                ),
-              ),
-            ),
+            const CategoryButton(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -304,191 +152,199 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 250,
-                  width: 170,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Stack(
-                          children: [
-                            const FavoriteButton(),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
-                              child: Image.asset('assets/images/img-prod1.png'),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'BEST SELLER',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color(0XFF0D6EFD),
-                                ),
-                              ),
-                              Text(
-                                'Jordan',
-                                style: GoogleFonts.raleway(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color(0xFF6A6A6A),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '\$625.00',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: const Color(0xFF2B2B2B)),
-                                  ),
-                                  Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(16),
-                                            bottomRight: Radius.circular(16))),
-                                    child: IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const DetailProdukHome(),
-                                          ),
-                                        );
-                                      },
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 250,
-                  width: 170,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Stack(
-                          children: [
-                            const FavoriteButton(),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 40),
-                              child: Image.asset('assets/images/img-prod2.png'),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'BEST SELLER',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: const Color(0XFF0D6EFD),
-                                ),
-                              ),
-                              Text(
-                                'Nike Air Max',
-                                style: GoogleFonts.raleway(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: const Color(0xFF6A6A6A),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '\$324.00',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                        color: const Color(0xFF2B2B2B)),
-                                  ),
-                                  Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: const BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(16),
-                                            bottomRight: Radius.circular(16))),
-                                    child: IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                const DetailProdukHome(),
-                                          ),
-                                        );
-                                      },
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: SizedBox(
+                height: 250,
+                width: double.infinity,
+                child: PopularShoes(),
+              ),
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: [
+            //     Container(
+            //       height: 250,
+            //       width: 170,
+            //       decoration: BoxDecoration(
+            //         color: Colors.white,
+            //         borderRadius: BorderRadius.circular(16),
+            //       ),
+            //       child: Column(
+            //         children: [
+            //           Expanded(
+            //             flex: 2,
+            //             child: Stack(
+            //               children: [
+            //                 const FavoriteButton(),
+            //                 Padding(
+            //                   padding: const EdgeInsets.only(top: 40),
+            //                   child: Image.asset('assets/images/img-prod1.png'),
+            //                 )
+            //               ],
+            //             ),
+            //           ),
+            //           Flexible(
+            //             flex: 1,
+            //             child: Padding(
+            //               padding: const EdgeInsets.only(left: 15),
+            //               child: Column(
+            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //                 crossAxisAlignment: CrossAxisAlignment.start,
+            //                 children: [
+            //                   Text(
+            //                     'BEST SELLER',
+            //                     style: GoogleFonts.poppins(
+            //                       fontSize: 12,
+            //                       fontWeight: FontWeight.w500,
+            //                       color: const Color(0XFF0D6EFD),
+            //                     ),
+            //                   ),
+            //                   Text(
+            //                     'Jordan',
+            //                     style: GoogleFonts.raleway(
+            //                       fontSize: 16,
+            //                       fontWeight: FontWeight.w600,
+            //                       color: const Color(0xFF6A6A6A),
+            //                     ),
+            //                   ),
+            //                   Row(
+            //                     mainAxisAlignment:
+            //                         MainAxisAlignment.spaceBetween,
+            //                     children: [
+            //                       Text(
+            //                         '\$625.00',
+            //                         style: GoogleFonts.poppins(
+            //                             fontSize: 14,
+            //                             fontWeight: FontWeight.w500,
+            //                             color: const Color(0xFF2B2B2B)),
+            //                       ),
+            //                       Container(
+            //                         height: 35,
+            //                         width: 35,
+            //                         decoration: const BoxDecoration(
+            //                             color: Colors.blue,
+            //                             borderRadius: BorderRadius.only(
+            //                                 topLeft: Radius.circular(16),
+            //                                 bottomRight: Radius.circular(16))),
+            //                         child: IconButton(
+            //                           onPressed: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) =>
+            //                                     const DetailProdukHome(),
+            //                               ),
+            //                             );
+            //                           },
+            //                           icon: const Icon(
+            //                             Icons.add,
+            //                             color: Colors.white,
+            //                             size: 20,
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   )
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //     Container(
+            //       height: 250,
+            //       width: 170,
+            //       decoration: BoxDecoration(
+            //         color: Colors.white,
+            //         borderRadius: BorderRadius.circular(16),
+            //       ),
+            //       child: Column(
+            //         children: [
+            //           Expanded(
+            //             flex: 2,
+            //             child: Stack(
+            //               children: [
+            //                 const FavoriteButton(),
+            //                 Padding(
+            //                   padding: const EdgeInsets.only(top: 40),
+            //                   child: Image.asset('assets/images/img-prod2.png'),
+            //                 )
+            //               ],
+            //             ),
+            //           ),
+            //           Flexible(
+            //             flex: 1,
+            //             child: Padding(
+            //               padding: const EdgeInsets.only(left: 15),
+            //               child: Column(
+            //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //                 crossAxisAlignment: CrossAxisAlignment.start,
+            //                 children: [
+            //                   Text(
+            //                     'BEST SELLER',
+            //                     style: GoogleFonts.poppins(
+            //                       fontSize: 12,
+            //                       fontWeight: FontWeight.w500,
+            //                       color: const Color(0XFF0D6EFD),
+            //                     ),
+            //                   ),
+            //                   Text(
+            //                     'Nike Air Max',
+            //                     style: GoogleFonts.raleway(
+            //                       fontSize: 16,
+            //                       fontWeight: FontWeight.w600,
+            //                       color: const Color(0xFF6A6A6A),
+            //                     ),
+            //                   ),
+            //                   Row(
+            //                     mainAxisAlignment:
+            //                         MainAxisAlignment.spaceBetween,
+            //                     children: [
+            //                       Text(
+            //                         '\$324.00',
+            //                         style: GoogleFonts.poppins(
+            //                             fontSize: 14,
+            //                             fontWeight: FontWeight.w500,
+            //                             color: const Color(0xFF2B2B2B)),
+            //                       ),
+            //                       Container(
+            //                         height: 35,
+            //                         width: 35,
+            //                         decoration: const BoxDecoration(
+            //                             color: Colors.blue,
+            //                             borderRadius: BorderRadius.only(
+            //                                 topLeft: Radius.circular(16),
+            //                                 bottomRight: Radius.circular(16))),
+            //                         child: IconButton(
+            //                           onPressed: () {
+            //                             Navigator.push(
+            //                               context,
+            //                               MaterialPageRoute(
+            //                                 builder: (context) =>
+            //                                     const DetailProdukHome(),
+            //                               ),
+            //                             );
+            //                           },
+            //                           icon: const Icon(
+            //                             Icons.add,
+            //                             color: Colors.white,
+            //                             size: 20,
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ],
+            //                   )
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ],
+            // ),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
               child: Row(
