@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nike/home/drawer.dart';
-import 'package:nike/onboard.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
