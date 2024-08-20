@@ -3,9 +3,23 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:nike/homenavigation/mainhome.dart';
 import 'package:nike/like/like.dart';
 
-class DetailProdukHome extends StatelessWidget {
+class DetailProdukHome extends StatefulWidget {
   const DetailProdukHome({super.key});
 
+  @override
+  State<DetailProdukHome> createState() => _DetailProdukHomeState();
+}
+
+class _DetailProdukHomeState extends State<DetailProdukHome> {
+  int selectedImage = 0;
+
+  var image = <String>[
+    'assets/images/detail/hero1.png',
+    'assets/images/detail/nike1.png',
+    'assets/images/detail/nike2.png',
+    'assets/images/detail/nike3.png',
+    'assets/images/detail/nike4.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,7 +129,10 @@ class DetailProdukHome extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 50),
-                  child: Image.asset('assets/images/detail/0.png'),
+                  child: Image.asset(
+                    image[selectedImage],
+                    height: 200,
+                  ),
                 )
               ],
             ),
@@ -125,62 +142,84 @@ class DetailProdukHome extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      color: Colors.white,
-                      child: Image.asset('assets/images/detail/hero1.png'),
-                    ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      color: Colors.white,
-                      child: Image.asset(
-                        'assets/images/detail/nike1.png',
+                children: image.map((e) {
+                  int index = image.indexOf(e);
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        selectedImage = index;
+                      });
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                        width: 70,
+                        height: 70,
+                        color: Colors.white,
+                        child: Image.asset(e),
                       ),
                     ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      color: Colors.white,
-                      child: Image.asset(
-                        'assets/images/detail/nike2.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      color: Colors.white,
-                      child: Image.asset(
-                        'assets/images/detail/nike3.png',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      color: Colors.white,
-                      child: Image.asset('assets/images/detail/nike4.png'),
-                    ),
-                  ),
-                ],
+                  );
+                }).toList(),
               ),
+              // child: Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              // ClipRRect(
+              //   borderRadius: BorderRadius.circular(15),
+              //   child: Container(
+              //     width: 70,
+              //     height: 70,
+              //     color: Colors.white,
+              //     child: Image.asset('assets/images/detail/hero1.png'),
+              //   ),
+              // ),
+              //     ClipRRect(
+              //       borderRadius: BorderRadius.circular(15),
+              //       child: Container(
+              //         width: 70,
+              //         height: 70,
+              //         color: Colors.white,
+              //         child: Image.asset(
+              //           'assets/images/detail/nike1.png',
+              //         ),
+              //       ),
+              //     ),
+              //     ClipRRect(
+              //       borderRadius: BorderRadius.circular(15),
+              //       child: Container(
+              //         width: 70,
+              //         height: 70,
+              //         color: Colors.white,
+              //         child: Image.asset(
+              //           'assets/images/detail/nike2.png',
+              //           fit: BoxFit.cover,
+              //         ),
+              //       ),
+              //     ),
+              //     ClipRRect(
+              //       borderRadius: BorderRadius.circular(15),
+              //       child: Container(
+              //         width: 70,
+              //         height: 70,
+              //         color: Colors.white,
+              //         child: Image.asset(
+              //           'assets/images/detail/nike3.png',
+              //           fit: BoxFit.cover,
+              //         ),
+              //       ),
+              //     ),
+              //     ClipRRect(
+              //       borderRadius: BorderRadius.circular(15),
+              //       child: Container(
+              //         width: 70,
+              //         height: 70,
+              //         color: Colors.white,
+              //         child: Image.asset('assets/images/detail/nike4.png'),
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ),
             const YourWidget(),
           ],
